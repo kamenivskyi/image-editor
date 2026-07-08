@@ -9,6 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "engines": {
+    "node": "22.13.1"
+  },
   "dependencies": {
     "@pinia/nuxt": "^0.11.3",
     "nuxt": "^4.4.8",

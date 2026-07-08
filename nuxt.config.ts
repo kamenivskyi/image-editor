@@ -5,6 +5,21 @@ export default defineNuxtConfig({
   ssr: false,
   modules: ['@pinia/nuxt', 'vuetify-nuxt-module'],
 
+  app: {
+    head: {
+      title: 'Image Editor — Non-Destructive Browser Image Editor',
+      htmlAttrs: { lang: 'en' },
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      ],
+      meta: [
+        { name: 'description', content: 'A non-destructive browser-based image editor built with Vue 3, Vuetify, and Pinia. Supports crop, brightness, saturation, filters, and JSON export.' },
+        { name: 'theme-color', content: '#0f172a' },
+      ],
+    },
+  },
+
   css: ['~/assets/scss/main.scss', 'cropperjs/dist/cropper.css'],
 
   vite: {

@@ -60,7 +60,7 @@
         variant="tonal"
         size="small"
         prepend-icon="mdi-download"
-        class="px-3"
+        class="toolbar__export"
         @click="imageExport.exportImage()"
       >
         Export

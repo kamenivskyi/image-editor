@@ -1,0 +1,273 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// === Upload Zone ===
+.upload {
+  @include flex-center;
+  min-height: 100vh;
+  padding: $space-xl;
+  background: $color-bg-dark;
+
+  &__card {
+    @include glass(0.5);
+    @include flex-column;
+    align-items: center;
+    gap: $space-lg;
+    padding: $space-2xl $space-xl;
+    border-radius: $radius-lg;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &:hover {
+      border-color: $color-primary;
+      box-shadow: $shadow-glow;
+    }
+  }
+
+  &__dropzone {
+    @include flex-column;
+    @include flex-center;
+    gap: $space-md;
+    width: 100%;
+    padding: $space-2xl $space-lg;
+    border: 2px dashed $color-bg-hover;
+    border-radius: $radius-md;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &--active {
+      border-color: $color-primary;
+      background: rgba($color-primary, 0.05);
+    }
+  }
+
+  &__icon {
+    color: $color-primary;
+    opacity: 0.8;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: 600;
+    color: $color-text-primary;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+
+  &__formats {
+    font-size: $font-size-xs;
+    color: $color-text-muted;
+  }
+}
+
+// === Editor Layout ===
+.editor {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  background: $color-bg-dark;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+  }
+
+  &__toolbar {
+    grid-column: 1 / -1;
+    @include glass(0.8);
+    @include flex-between;
+    flex-wrap: wrap;
+    gap: $space-sm;
+    padding: $space-sm $space-lg;
+    z-index: $z-toolbar;
+    border-bottom: 1px solid $color-border;
+
+    @media (max-width: $breakpoint-md) {
+      justify-content: center;
+      padding: $space-sm;
+    }
+  }
+
+  &__canvas-area {
+    @include flex-center;
+    padding: $space-lg;
+    overflow: hidden;
+    position: relative;
+    background: $color-bg-dark;
+  }
+
+  &__sidebar {
+    @include glass(0.6);
+    @include flex-column;
+    @include custom-scrollbar;
+    gap: $space-md;
+    padding: $space-lg;
+    border-left: 1px solid $color-border;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: calc(100vh - 64px);
+    min-width: 0;
+
+    @media (max-width: $breakpoint-lg) {
+      border-left: none;
+      border-top: 1px solid $color-border;
+      max-height: none;
+    }
+  }
+}
+
+// === Canvas ===
+.canvas {
+  &__wrapper {
+    position: relative;
+    max-width: 100%;
+    max-height: calc(100vh - 120px);
+    border-radius: $radius-md;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+  }
+
+  &__image {
+    display: block;
+    max-width: 100%;
+    max-height: calc(100vh - 120px);
+    object-fit: contain;
+  }
+
+  &__loading {
+    position: absolute;
+    inset: 0;
+    @include flex-center;
+    background: rgba($color-bg-dark, 0.5);
+    backdrop-filter: blur(4px);
+    border-radius: $radius-md;
+  }
+}
+
+// === Panel ===
+.panel {
+  &__header {
+    @include flex-between;
+    margin-bottom: $space-md;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    color: $color-text-primary;
+  }
+
+  &__group {
+    @include flex-column;
+    gap: $space-sm;
+    margin-bottom: $space-md;
+  }
+
+  &__label {
+    @include flex-between;
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+
+  &__value {
+    font-weight: 500;
+    color: $color-primary-light;
+    font-size: $font-size-sm;
+    min-width: 40px;
+    text-align: right;
+  }
+}
+
+// === Filter Card ===
+.filter-card {
+  @include flex-column;
+  align-items: center;
+  gap: $space-xs;
+  padding: $space-sm;
+  border: 2px solid transparent;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+  background: $color-bg-elevated;
+
+  &:hover {
+    border-color: $color-bg-hover;
+  }
+
+  &--active {
+    border-color: $color-primary;
+    background: rgba($color-primary, 0.1);
+  }
+
+  &__preview {
+    width: 60px;
+    height: 60px;
+    border-radius: $radius-sm;
+    object-fit: cover;
+  }
+
+  &__name {
+    font-size: $font-size-xs;
+    font-weight: 500;
+    color: $color-text-secondary;
+  }
+}
+
+// === Toolbar ===
+.toolbar {
+  &__brand {
+    @include flex-center;
+    gap: $space-sm;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    color: $color-primary;
+  }
+
+  &__name {
+    font-size: $font-size-lg;
+    font-weight: 700;
+    color: $color-text-primary;
+    white-space: nowrap;
+
+    span {
+      color: $color-primary;
+    }
+  }
+
+  &__actions {
+    @include flex-center;
+    gap: $space-sm;
+    flex-shrink: 0;
+  }
+
+  &__modes {
+    @include flex-center;
+    gap: $space-xs;
+  }
+}
+
+// === Crop Panel ===
+.crop-panel {
+  &__presets {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-sm;
+    margin-bottom: $space-md;
+  }
+
+  &__actions {
+    @include flex-column;
+    gap: $space-sm;
+    margin-top: $space-md;
+  }
+}

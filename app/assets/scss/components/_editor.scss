@@ -248,11 +248,31 @@
     @include flex-center;
     gap: $space-sm;
     flex-shrink: 0;
+
+    .toolbar__export {
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+
+      @media (min-width: $breakpoint-sm) {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+      }
+    }
   }
 
   &__modes {
     @include flex-center;
     gap: $space-xs;
+
+    .v-btn {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+
+      @media (min-width: $breakpoint-sm) {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+    }
   }
 }
 

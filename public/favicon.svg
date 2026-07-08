@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="url(#bg)"/>
+  <!-- Image frame -->
+  <rect x="5" y="7" width="16" height="14" rx="2" fill="none" stroke="url(#accent)" stroke-width="1.8"/>
+  <!-- Mountain/landscape inside frame -->
+  <polygon points="5,19 10,14 14,17 18,12 21,19" fill="url(#accent)" opacity="0.3"/>
+  <!-- Sun -->
+  <circle cx="17" cy="11" r="2" fill="url(#accent)" opacity="0.5"/>
+  <!-- Pencil -->
+  <g transform="translate(16,4) rotate(45)">
+    <rect x="0" y="0" width="4" height="16" rx="0.5" fill="url(#accent)"/>
+    <polygon points="0,16 2,20 4,16" fill="url(#accent)"/>
+    <rect x="0" y="0" width="4" height="3" rx="0.5" fill="#0f172a" opacity="0.4"/>
+  </g>
+</svg>

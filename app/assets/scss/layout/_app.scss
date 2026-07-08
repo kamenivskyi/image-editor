@@ -1,0 +1,7 @@
+@use '../abstracts/variables' as *;
+
+.app-layout {
+  min-height: 100vh;
+  background: $color-bg-dark;
+  color: $color-text-primary;
+}

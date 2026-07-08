@@ -1,6 +1,6 @@
 # 🖼️ Image Editor — Non-Destructive Browser Image Editor
 
-A browser-based, non-destructive image editor built with **Vue 3**, **Nuxt 3** **Vuetify 4**, **Pinia**, and **TypeScript**. Designed for the printing industry workflow where preparing and adjusting images for output is everyday work.
+A browser-based, non-destructive image editor built with **Vue 3**, **Nuxt 4** **Vuetify 4**, **Pinia**, and **TypeScript**. Designed for the printing industry workflow where preparing and adjusting images for output is everyday work.
 
 ## ✨ Features
 
